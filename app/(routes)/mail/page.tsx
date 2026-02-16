@@ -4,6 +4,7 @@ import { useState } from 'react';
 import TransitionPage from '@/components/transition-page';
 import NoteImage from '@/components/note-image';
 import ContainerPage from '@/components/container-page';
+import { FormEvent } from "react";
 
 const Mail = () => {
   const [formData, setFormData] = useState({
@@ -17,30 +18,32 @@ const Mail = () => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const { nombre, correo, mensaje } = formData;
+ const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    if (!nombre.trim() || !correo.trim() || !mensaje.trim()) return;
+  const { nombre, correo, mensaje } = formData;
 
-    try {
-      const res = await fetch('/api/sendMail', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
+  if (!nombre.trim() || !correo.trim() || !mensaje.trim()) return;
 
-      if (res.ok) {
-        setSubmitted(true);
-      } else {
-        console.error('Error enviando correo');
-        alert('Error al enviar el correo. Por favor intenta más tarde.');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Ocurrió un error enviando el correo.');
+  try {
+    const res = await fetch("/api/sendMail", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    if (res.ok) {
+      setSubmitted(true);
+    } else {
+      console.error("Error enviando correo");
+      alert("Error al enviar el correo. Por favor intenta más tarde.");
     }
-  };
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Ocurrió un error enviando el correo.");
+  }
+};
+
 
   return (
     <ContainerPage>
