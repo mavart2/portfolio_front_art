@@ -1,0 +1,19 @@
+/* Utilidades para centrar logo en Bootstrap 4 */
+.position-relative { position: relative; }
+.position-absolute { position: absolute; }
+.start-50 { left: 50%; }
+.translate-middle-x { transform: translateX(-50%); }
+/* Eliminar estilos de suscripción */
+.suscripcion {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.suscripcion .form-control {
+    flex: 1 1 auto;
+    min-width: 220px;
+}
+.suscripcion .btn {
+    white-space: nowrap;
+}
+/* (bloque .suscripcion removido) */
