@@ -46,10 +46,10 @@ const Introduction = () => {
             impactantes y accesibles.
           </p>
 
-          <div className="relative z-50 flex flex-col md:flex-row items-center justify-center md:justify-start gap-3 md:gap-6">
+          <div className="relative z-50 flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start gap-3 md:gap-6">
             <a
               href="/portfolio"
-              className="px-3 py-2 transition-all border-2 cursor-pointer text-md w-full md:w-fit rounded-xl hover:shadow-lg hover:shadow-white/50 hover:scale-105"
+              className="px-3 py-2 transition-all border-2 cursor-pointer text-md w-full md:w-auto rounded-xl hover:shadow-lg hover:shadow-white/50 hover:scale-105 block text-center"
             >
               Ver proyectos
             </a>
